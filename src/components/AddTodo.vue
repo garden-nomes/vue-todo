@@ -4,7 +4,9 @@
     @submit="onSubmit"
   >
     <input v-model="name" placeholder="Add todo..." />
-    <button type="submit">submit</button>
+    <button type="submit">
+      <font-awesome-icon icon="plus" fixed-width />
+    </button>
   </form>
 </template>
 
@@ -28,13 +30,13 @@ export default {
 <style scoped>
 #add-todo {
   display: flex;
-  line-height: 1.75rem;
+  line-height: 2.5;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
 
 input {
-  line-height: 1.75rem;
+  line-height: 2.5;
   font-size: 0.9rem;
   padding: 0 0.5rem;
   border: none;
@@ -60,7 +62,7 @@ button {
 
   border-left: .0625rem solid #999;
   border-top-right-radius: 0.25rem;
-  line-height: 1.75rem;
+  line-height: 2.5;
   padding: 0 0.5rem;
   cursor: pointer;
 }

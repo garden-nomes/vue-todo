@@ -1,20 +1,24 @@
 <template>
   <li :class="{ 'todo-item': true, 'todo-item_done': todo.done }">
     <template v-if="editing">
-      <input v-model="todo.name" />
+      <input v-model="todo.name" @keydown.enter="editing = false" />
       <button type="submit" @click="editing = false">done</button>
     </template>
 
     <template v-else>
       <div @click='todo.done = !todo.done' class="todo-item--name">
+        <font-awesome-icon
+          :icon="todo.done ? 'check-square' : 'square'"
+          fixed-width
+        />
         {{ todo.name }}
       </div>
 
       <button type="button" @click="editing = true">
-        edit
+        <font-awesome-icon icon="pencil-alt" fixed-width />
       </button>
       <button type="button" @click="$emit('delete', todo.id)">
-        delete
+        <font-awesome-icon icon="trash" fixed-width />
       </button>
     </template>
   </li>
@@ -59,10 +63,6 @@ export default {
 
 .todo-item_done {
   color: #999;
-}
-
-.todo-item_done .todo-item--name {
-  text-decoration: line-through;
 }
 
 .todo-item button {
