@@ -3,7 +3,7 @@
     <input type="checkbox" v-model="hideCompleted">hide completed</input>
     <ul>
       <TodoItem
-        v-for="todo in (hideCompleted ? activeTodos : todos)"
+        v-for="todo in (hideCompleted ? activeTodos : sortedTodos)"
         :key="todo.id"
         :todo="todo"
         @delete="$emit('deleteTodo', $event)"
@@ -23,12 +23,23 @@ export default {
   },
   data() {
     return {
-      hideCompleted: true
+      hideCompleted: false
     }
   },
   computed: {
+    sortedTodos() {
+      return this.todos.sort((a, b) => {
+        if (a.done && !b.done) {
+          return 1;
+        } else if (!a.done && b.done) {
+          return -1;
+        } else {
+          return b.createdAt - a.createdAt;
+        }
+      })
+    },
     activeTodos() {
-      return this.todos.filter(todo => !todo.done)
+      return this.sortedTodos.filter(todo => !todo.done)
     }
   }
 };

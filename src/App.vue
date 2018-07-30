@@ -15,9 +15,24 @@ export default {
   data: function() {
     return {
       todos: [
-        { id: 0, name: "Ease the sheets", done: true },
-        { id: 1, name: "Mizzen to weather", done: false },
-        { id: 2, name: "Mains'l haul", done: false }
+        {
+          id: 0,
+          name: "Ease the sheets",
+          done: true,
+          createdAt: new Date()
+        },
+        {
+          id: 1,
+          name: "Mizzen to weather",
+          done: false,
+          createdAt: new Date()
+        },
+        {
+          id: 2,
+          name: "Mains'l haul",
+          done: false,
+          createdAt: new Date()
+        }
       ],
       currentTodoId: 3
     };
@@ -27,7 +42,8 @@ export default {
       this.todos.push({
         id: this.currentTodoId,
         name,
-        done: false
+        done: false,
+        createdAt: new Date()
       });
 
       this.currentTodoId++;
