@@ -1,7 +1,11 @@
 <template>
   <div class="todo-list">
-    <input id="hide-completed" type="checkbox" v-model="hideCompleted" />
-    <label for="hide-completed">hide completed</label>
+    <button type="button" v-if="hideCompleted" @click="hideCompleted = false">
+      show completed
+    </button>
+    <button type="button" v-else @click="hideCompleted = true">
+      hide completed
+    </button>
     <ul>
       <TodoItem
         v-for="todo in (hideCompleted ? activeTodos : sortedTodos)"
