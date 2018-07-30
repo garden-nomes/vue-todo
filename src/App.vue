@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TodoList :todos='todos' @deleteTodo='deleteTodo' />
+    <AddTodo @submit='addTodo' />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import TodoList from "./components/TodoList.vue";
+import AddTodo from "./components/AddTodo.vue";
 
 export default {
   name: "app",
-  components: {
-    HelloWorld
+  components: { TodoList, AddTodo },
+  data: function() {
+    return {
+      todos: [
+        { id: 0, name: "Ease the sheets", done: true },
+        { id: 1, name: "Mizzen to weather", done: false },
+        { id: 2, name: "Mains'l haul", done: false }
+      ],
+      currentTodoId: 3
+    };
+  },
+  methods: {
+    addTodo(name) {
+      this.todos.push({
+        id: this.currentTodoId,
+        name,
+        done: false
+      });
+
+      this.currentTodoId++;
+    },
+    deleteTodo(id) {
+      const index = this.todos.findIndex(todo => todo.id === id);
+      this.todos.splice(index, 1);
+    }
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
