@@ -3,7 +3,7 @@
     id="add-todo"
     @submit="onSubmit"
   >
-    <input v-model="name" />
+    <input v-model="name" placeholder="Add todo..." />
     <button type="submit">submit</button>
   </form>
 </template>
@@ -24,3 +24,53 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#add-todo {
+  display: flex;
+  line-height: 1.75rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+input {
+  line-height: 1.75rem;
+  font-size: 0.9rem;
+  padding: 0 0.5rem;
+  border: none;
+  flex: 1;
+  background: none;
+  border-top-left-radius: 0.25rem;
+}
+
+button {
+  /* reset */
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+
+  border-left: .0625rem solid #999;
+  border-top-right-radius: 0.25rem;
+  line-height: 1.75rem;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f7f7f7;
+}
+
+.todo-item button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+</style>
