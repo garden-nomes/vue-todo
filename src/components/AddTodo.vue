@@ -60,7 +60,7 @@ button {
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;
 
-  border-left: .0625rem solid #999;
+  border-left: 0.0625rem solid #999;
   border-top-right-radius: 0.25rem;
   line-height: 2.5;
   padding: 0 0.5rem;
@@ -72,7 +72,7 @@ button:hover {
 }
 
 .todo-item button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 </style>

@@ -81,8 +81,8 @@ export default {
 }
 
 .todo-list button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 .todo-list button:hover {

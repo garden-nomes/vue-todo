@@ -40,7 +40,7 @@ export default {
 
 <style scoped>
 .todo-item {
-  border-top: .0625rem solid #999;
+  border-top: 0.0625rem solid #999;
   line-height: 2.5rem;
   cursor: pointer;
 
@@ -50,7 +50,7 @@ export default {
 
 .todo-item--name {
   padding-left: 0.5rem;
-  flex: 1
+  flex: 1;
 }
 
 .todo-item--name:hover {
@@ -80,7 +80,7 @@ export default {
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;
 
-  border-left: .0625rem solid #999;
+  border-left: 0.0625rem solid #999;
   line-height: 2.5rem;
   padding: 0 0.5rem;
   cursor: pointer;
@@ -91,8 +91,8 @@ export default {
 }
 
 .todo-item button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 .todo-item input {

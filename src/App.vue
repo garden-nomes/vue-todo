@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,900");
 
 body {
   background: #f7f7f7;
@@ -67,10 +67,10 @@ body {
   max-width: 25rem;
   margin: 2rem auto;
   background: #fff;
-  border-radius: .25rem;
-  border: .0625rem solid #999;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #999;
   font-family: "Roboto", sans-serif;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 #app h1 {
