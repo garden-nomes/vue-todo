@@ -1,6 +1,7 @@
 <template>
   <div class="todo-list">
-    <input type="checkbox" v-model="hideCompleted">hide completed</input>
+    <input id="hide-completed" type="checkbox" v-model="hideCompleted" />
+    <label for="hide-completed">hide completed</label>
     <ul>
       <TodoItem
         v-for="todo in (hideCompleted ? activeTodos : sortedTodos)"
@@ -24,11 +25,11 @@ export default {
   data() {
     return {
       hideCompleted: false
-    }
+    };
   },
   computed: {
     sortedTodos() {
-      return this.todos.sort((a, b) => {
+      return this.todos.slice(0).sort((a, b) => {
         if (a.done && !b.done) {
           return 1;
         } else if (!a.done && b.done) {
@@ -36,10 +37,10 @@ export default {
         } else {
           return b.createdAt - a.createdAt;
         }
-      })
+      });
     },
     activeTodos() {
-      return this.sortedTodos.filter(todo => !todo.done)
+      return this.sortedTodos.filter(todo => !todo.done);
     }
   }
 };
