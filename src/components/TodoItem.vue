@@ -1,6 +1,9 @@
 <template>
   <li :class="{ 'todo-item': true, 'todo-item_done': todo.done }">
-    <input v-if="editing" v-model="todo.name" />
+    <form v-if="editing" @submit.prevent="editing = false">
+      <input v-model="todo.name" />
+      <button type="submit">done</button>
+    </form>
 
     <template v-else>
       <span
@@ -11,31 +14,12 @@
       </span>
     </template>
 
-    <span class="todo-item--toolbar">
-      <a
-        class="todo-item--toolbar--button"
-        href="#"
-        v-if="!editing"
-        @click.prevent="editing = true"
-      >
-        edit
-      </a>
-      <a
-        class="todo-item--toolbar--button"
-        href="#"
-        v-if="editing"
-        @click.prevent="editing = false"
-      >
-        done
-      </a>
-      <a
-        class="todo-item--toolbar--button"
-        href="#"
-        @click.prevent="$emit('delete', todo.id)"
-      >
-        delete
-      </a>
-    </span>
+    <button type="button" v-if="!editing" @click="editing = true">
+      edit
+    </button>
+    <button type="button" v-if="!editing" @click="$emit('delete', todo.id)">
+      delete
+    </button>
   </li>
 </template>
 
